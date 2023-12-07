@@ -11,6 +11,9 @@ Route::get('/', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
+Route::get('/portfolio', function () {
+    return view('portfolio');
+});
 Auth::routes();
 Route::controller(HomeController::class)->group(function(){
     Route::get('/about','index');

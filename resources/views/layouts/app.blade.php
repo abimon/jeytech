@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="We are a company that is envisioned to revolutionize industries through innovative automation solutions, cutting-edge IoT technologies, and unparalleled project management consultancy, driving unparalleled efficiency and productivity for businesses worldwide.">
     <meta name="keywords" content="Iot, jeytech,precision,project,management,indurtial,automation,muthangari,westland, technology">
-    <title>JEYTECH PRECISIONS</title>
+    <title>JEYTECH PRECISION</title>
     <link rel="shortcut icon" href="{{asset('storage/img/favicon2.png')}}" type="image/x-icon">
     <link rel="apple-touch-icon" href="{{asset('storage/img/favicon2.png')}}">
     <!-- Fonts -->
@@ -69,7 +69,6 @@
     </nav>
     <div class=" " style="min-height: 600px; margin-top:120px;">
         @yield('content')
-
     </div>
     <div class="text-light p-3 bg-dark ">
         <div class="m-3 row">
