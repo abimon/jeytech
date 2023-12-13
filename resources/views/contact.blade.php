@@ -29,35 +29,30 @@
             <div class="col-lg-7 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
                 <p class="mb-4">Any information shared through this form is kept private as per our user policy. It will only be used to respond to you appropriately.</p>
                 <form action="/contactForm" method="post">
-                    <div class="row g-3">
-                        <div class="col-md-12">
+                    <div class="row ">
+                        <div class="col-md-10 mb-3">
                             <div class="form-floating">
                                 <input type="text" class="form-control" name="name" id="name" placeholder="Your Name">
-                                <label for="name">Your Name</label>
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-10 mb-3">
                             <div class="form-floating">
                                 <input type="email" class="form-control" name="email" id="email" placeholder="Your Email">
-                                <label for="email">Your Email</label>
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-10 mb-3">
                             <div class="form-floating">
                                 <input type="number" class="form-control" id="number" name="phone" placeholder="Your Phone Number">
-                                <label for="number">Your Phone Number</label>
                             </div>
                         </div>
-                        <div class="col-12">
+                        <div class="col-md-10 mb-3">
                             <div class="form-floating">
                                 <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject">
-                                <label for="subject">Subject</label>
                             </div>
                         </div>
-                        <div class="col-12">
+                        <div class="col-md-10 mb-3">
                             <div class="form-floating">
                                 <textarea class="form-control" name="message" placeholder="Leave a message here" id="message" style="height: 200px"></textarea>
-                                <label for="message">Message</label>
                             </div>
                         </div>
                         <div class="col-12">

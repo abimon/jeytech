@@ -1,34 +1,27 @@
 @extends('layouts.app')
 @section('content')
-<div class="container-xxl ">
-    
-    <div class="container" id="team">
-        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
-            <h1 class="display-5 mb-3">Project We have engaged in</h1>
-            <div class="section-header"></div>
-            <div id="teachers" class="section wb ">
-                <div class="container">
-                    <div class="row d-flex justify-content-center">
-                        @for($i=1;$i<=10;$i++)
-                        <div class="col-lg-4 col-md-6 col-12 p-2">
-                        <div class="our-team">
-                                <div class="team-img">
-                                    <div>
-                                        <img src="{{asset('storage/img/download1.jpg')}}" style="border-radius: 0px; height: 300px;">
-                                    </div>
-                                    <div class="social p-2">
-                                        <p class="text-light">
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quod voluptates odit laudantium, in eligendi animi dolorem hic veniam consequuntur iure est expedita? Numquam eum vel rerum architecto suscipit illo!
-                                        </p>
-                                        <h3>Project {{$i}}</h3>
-                                    </div>
-                                </div>
+<div class="container-fluid py-2">
+    <div class="container py-2">
+        <div class="text-center mb-5">
+            <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Projects Portfolio</h5>
+            <h1>Previous projects we have engaged</h1>
+        </div>
+        <div class="row">
+            @for($i=1;$i<=6;$i++)
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="rounded overflow-hidden mb-2">
+                    <img class="img-fluid w-100" style="height:200px;" src="{{asset('storage/img/course-'.($i).'.jpg')}}" alt="">
+                    <div class="bg-secondary p-4">
+                        <a class="h5" href="">Project {{$i}}</a>
+                        <div class="border-top mt-4 pt-4">
+                            <div class="d-flex justify-content-center">
+                                <small>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni illo, obcaecati voluptates numquam non nulla pariatur sint facilis. Culpa aliquam fugiat alias iusto, quia ea eum debitis nihil est molestiae.</small></h6>
                             </div>
                         </div>
-                        @endfor
                     </div>
                 </div>
             </div>
+            @endfor
         </div>
     </div>
 </div>

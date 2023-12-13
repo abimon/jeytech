@@ -1,91 +1,55 @@
 @extends('layouts.app')
 @section('content')
-<div class="container-xxl ">
-    <div class="container" id="about">
-        <div class="text-center mx-auto mb-5 wow fadeInUp row" data-wow-delay="0.1s">
-            <h1 class="display-5 mb-3">About Us</h1>
-            <div class="section-header"></div>
-            <p class="text-dark text-start col-md-6" style="font-size: medium;">Jeytech Precisions is a company envisioned to revolutionize industries through innovative automation solutions, cutting-edge IoT technologies, and unparalleled project management consultancy, driving unparalleled efficiency and productivity for businesses worldwide.</p>
-            <p class="text-dark text-start col-md-6" style="font-size: medium;">
-            Our mission is to empower industries with state-of-the-art automation technologies, seamless integration of IoT systems, and expert project management consultancy. We strive to enhance operational excellence, sustainability, and competitiveness for our clients while fostering a culture of innovation and continuous improvement.
-            </p>
-        </div>
-    </div>
-    <div class="container" id="team">
-        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
-            <h1 class="display-5 mb-3">Our Team</h1>
-            <div class="section-header"></div>
-            <div id="teachers" class="section wb ">
-                <div class="container">
-                    <div class="row d-flex justify-content-center">
-                        @foreach($users->where('role','!=','Guest') as $user)
-                        <div class="col-lg-3 col-md-4 col-6">
-                            <div class="our-team">
-                                <div class="team-img">
-                                    <div>
-                                        <img src="{{asset('storage/profile/'.$user['avatar'])}}" >
-                                    </div>
-                                    <div class="social">
-                                        <ul>
-                                            <li><a href="{{$user->facebook}}" target='_blank' class="fa-brands fa-facebook"></a></li>
-                                            <li><a href="{{$user->twitter}}" target='_blank' class="fa-brands fa-twitter"></a></li>
-                                            <li><a href="{{$user->linkedin}}" target='_blank' class="fa-brands fa-linkedin"></a></li>
-                                            <li><a href="{{$user->instagram}}" target='_blank' class="fa-brands fa-instagram"></a></li>
-                                            <li><a href="https://wa.me/{{$user->contact}}" target='_blank' class="fa-brands fa-whatsapp"></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="team-content">
-                                    <h3 class="title">{{$user->name}}</h3>
-                                    <span class="post">{{$user->role}}</span>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-                    </div>
+
+<!-- About Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="row align-items-center">
+            <div class="col-lg-5">
+                <img class="img-fluid rounded mb-4 mb-lg-0" src="{{asset('storage/img/about.jpg')}}" alt="">
+            </div>
+            <div class="col-lg-7">
+                <div class="text-left mb-4">
+                    <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">About Us</h5>
+                    <h1>Our Vision</h1>
                 </div>
+                <p>Jeytech Precisions is a company envisioned to revolutionize industries through innovative automation solutions, cutting-edge IoT technologies, and unparalleled project management consultancy, driving unparalleled efficiency and productivity for businesses worldwide.</p>
+                <h1>Our Mission</h1>
+                <p>Our mission is to empower industries with state-of-the-art automation technologies, seamless integration of IoT systems, and expert project management consultancy. We strive to enhance operational excellence, sustainability, and competitiveness for our clients while fostering a culture of innovation and continuous improvement.</p>
             </div>
         </div>
     </div>
-</div>
-<div class="container" id="services">
-    <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
-        <h1 class="display-5 mb-3">Services</h1>
-        <div class="section-header"></div>
+
+    <!-- About End -->
+    <div class="container">
+        <div class="text-center mb-5">
+            <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Core Values</h5>
+            <h1>Our Core Values</h1>
+        </div>
         <div class="row">
-            <div class="col-md-6 col-lg-4 col-12 p-3">
-                <div class="p-2">
-                    <h3 class="mb-md-2 animated slideInDown text-dark">01. Project Management Consultancy</h3>
-                    <p class="text-dark text-start">Navigate your projects with precision and efficiency. Our seasoned experts offer comprehensive project management consultancy services, ensuring seamless execution, timely delivery, and optimal resource utilization. Trust us to turn your visions into successful realities.</p>
-                </div>
+            <div class="col-md-4">
+                <h5 class="text-primary">01. Innovation</h5>
+                <p>We foster a culture of innovation, encouraging our team to think creatively and develop groundbreaking solutions to address complex industrial challenges.</p>
             </div>
-            <div class="col-md-6 col-lg-4 col-12 p-3">
-                <div class="p-2">
-                    <h3 class=" mb-md-2 animated slideInDown text-dark">02. IoT Solutions</h3>
-                    <p class="text-dark text-start">Empower your business with the Internet of Things (IoT). Our tailored IoT solutions harness the power of connected devices in agritech, fleet management, and remote sensing, thus providing real-time insights, enhanced efficiency, and intelligent decision-making. From smart infrastructure to data-driven insights, we pave the way for a connected and smarter future.</p>
-                </div>
+            <div class="col-md-4">
+                <h5 class="text-primary">02. Reliability</h5>
+                <p>We are committed to delivering products and services of the highest quality,ensuring the reliability and long-term success of our clients' projects.</p>
             </div>
-            <div class="col-md-6 col-lg-4 col-12 p-3">
-                <div class="p-2">
-                    <h3 class="mb-md-2 animated slideInDown text-dark">03. Industrial Automation</h3>
-                    <p class="text-dark text-start" >Drive productivity and precision with our cutting-edge industrial automation services. We specialize in optimizing manufacturing processes, enhancing operational efficiency, and integrating state-of-the-art automation technologies. Experience the transformative impact of streamlined operations and increased output.</p>
-                </div>
+            <div class="col-md-4">
+                <h5 class="text-primary">03. Customer-Centrism</h5>
+                <p>Our clients' needs are at the core of everything we do. We listen, understand, and tailor our solutions to meet their unique requirements effectively.</p>
+            </div>
+            <div class="col-md-4">
+                <h5 class="text-primary">04. Integrity</h5>
+                <p>We conduct our business with the utmost integrity, maintaining transparency,
+                    honesty, and ethical standards in all our interactions.</p>
+            </div>
+            <div class="col-md-4">
+                <h5 class="text-primary">05. Cross-functional collaboration</h5>
+                <p>We believe in the power of collaboration and teamwork. By working together, we achieve remarkable results and provide comprehensive solutions to our clients.</p>
             </div>
         </div>
     </div>
 </div>
-<div class="container" id="partnership">
-    <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
-        <h1 class="display-5 mb-3">Our Partnership</h1>
-        <div class="section-header"></div>
-        <p></p>
-    </div>
-</div>
-<div class="container" id="testimonials">
-    <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
-        <h1 class="display-5 mb-3">Testimonials</h1>
-        <div class="section-header"></div>
-        <p></p>
-    </div>
-</div>
+
 @endsection

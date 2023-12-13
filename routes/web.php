@@ -18,6 +18,15 @@ Auth::routes();
 Route::controller(HomeController::class)->group(function(){
     Route::get('/about','index');
 });
+Route::get('/team', function () {
+    return view('team');
+});
+Route::get('/insights', function () {
+    return view('articles');
+});
+Route::get('/article', function () {
+    return view('article');
+});
 Route::get('/profile',function(){
     return view('admin.profile');
 });
