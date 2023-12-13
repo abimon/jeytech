@@ -94,9 +94,8 @@
                                 <a href="/about" class="nav-item nav-link {{request()->path()=='about'?'active':''}}">About</a>
                                 <a href="/portfolio" class="nav-item nav-link {{request()->path()=='portfolio'?'active':''}}">Portfolio</a>
                                 <a href="/team" class="nav-item nav-link {{request()->path()=='team'?'active':''}}">Team</a>
-                                <a href="/contact" class="nav-item nav-link {{request()->path()=='contact'?'active':''}}">Contact</a>
                             </div>
-                            <a class="btn btn-primary py-2 px-4 ml-auto d-none d-lg-block" href="">Contact Now!</a>
+                            <a class="btn btn-primary py-2 px-4 ml-auto d-none d-lg-block" href="/contact">Contact Now!</a>
                         </div>
                     </nav>
                 </div>
