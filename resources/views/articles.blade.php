@@ -23,7 +23,7 @@
                     @foreach($articles as $item)
                     <div class="col-lg-6 mb-4">
                         <div class="blog-item position-relative overflow-hidden rounded mb-2" style="height: 300px;">
-                            <img class="" src="{{asset('storage/blog/'.$article->cover)}}" alt="" style="width: 100%;object-fit:cover;">
+                            <img class="" src="{{asset('storage/blog/'.$item->cover)}}" alt="" style="width: 100%;object-fit:cover;">
                             <a class="blog-overlay text-decoration-none" href="/article/{{$item->slug}}">
                                 <h5 class="text-white mb-3">{{$item->except}}</h5>
                                 <p class="text-primary m-0">{{date_format($item->created_at,'jS F, Y')}}</p>
