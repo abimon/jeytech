@@ -94,14 +94,14 @@
                                 <a href="/about" class="nav-item nav-link {{request()->path()=='about'?'active':''}}">About</a>
                                 <a href="/portfolio" class="nav-item nav-link {{request()->path()=='portfolio'?'active':''}}">Portfolio</a>
                                 <a href="/team" class="nav-item nav-link {{request()->path()=='team'?'active':''}}">Team</a>
-                            </div>
-                            <div class="nav-item dropdown">
+                                <div class="nav-item dropdown">
                                 <a href="#" class="nav-link" data-toggle="dropdown">Articles <i class="fa fa-angle-down float-right mt-1"></i></a>
                                 <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
                                     <a href="/insights" class="dropdown-item">Insights</a>
                                     <a href="" class="dropdown-item">Career</a>
                                     <a href="" class="dropdown-item">Updates</a>
                                 </div>
+                            </div>
                             </div>
                             <a class="btn btn-primary py-2 px-4 ml-auto d-none d-lg-block" href="/contact">Contact Now!</a>
                         </div>
