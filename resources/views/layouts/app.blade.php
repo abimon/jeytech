@@ -29,8 +29,8 @@
         <div class="container-fluid d-none d-lg-block">
             <div class="row align-items-center py-4 px-xl-5">
                 <div class="col-lg-3">
-                    <a href="" class="text-decoration-none">
-                        <img src="{{asset('storage/img/logo.png')}}" style="height: 150px;" alt="">
+                    <a href="/" class="text-decoration-none">
+                    <img src="{{asset('storage/img/logo.png')}}" style="height: 150px;" alt="">
                     </a>
                 </div>
                 <div class="col-lg-3 text-right">
@@ -82,8 +82,8 @@
                 </div>
                 <div class="col-lg-9">
                     <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
-                        <a href="" class="text-decoration-none d-block d-lg-none">
-                            <img src="{{asset('storage/img/logo.png')}}" style="height: 150px;" alt="">
+                        <a href="/" class="text-decoration-none d-block d-lg-none">
+                        <h1 class="m-0"><span class="text-primary">JEYTECH</span>PRECISION</h1>
                         </a>
                         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                             <span class="navbar-toggler-icon"></span>
@@ -107,7 +107,7 @@
         @yield('content')
     </div>
     <!-- Footer Start -->
-    <div class="container-fluid text-white py-5 px-sm-3 px-lg-5"  style="margin-top: 90px;background-color:#061f0b;">
+    <div class="container-fluid text-white py-5 px-sm-3 px-lg-5" style="margin-top: 90px;background-color:#061f0b;">
         <div class="row pt-5">
             <div class="col-lg-7 col-md-12">
                 <div class="row">
@@ -190,7 +190,6 @@
     <!-- Contact Javascript File -->
     <script src="{{asset('storage/mail/jqBootstrapValidation.min.js')}}"></script>
     <script src="{{asset('storage/mail/contact.js')}}"></script>
-
     <!-- Template Javascript -->
     <script src="{{asset('storage/js/main.js')}}"></script>
 </body>

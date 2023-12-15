@@ -9,19 +9,20 @@
             <li data-target="#header-carousel" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
-            @for($i=1;$i<=3;$i++) <div class="carousel-item {{$i==1?'active':''}}" style="max-height: 400px;">
-                <img class="position-relative w-100" src="{{asset('storage/img/carousel-'.$i.'.jpg')}}" style="max-height: 400px; object-fit: cover;">
+            @for($i=1;$i<=3;$i++) 
+            <div class="carousel-item {{$i==1?'active':''}}" style="">
+                <img class="position-relative w-100" src="{{asset('storage/img/carousel-'.$i.'.jpg')}}" style="object-fit: cover;">
                 <div class="carousel-caption d-flex align-items-center justify-content-center">
                     <div class="p-5" style="width: 100%; max-width: 900px;">
                         <h5 class="text-white text-uppercase mb-md-3">Advert {{$i}}</h5>
-                        <h6 class=" text-white mb-md-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. At fugit corporis provident nobis accusantium quaerat. Incidunt harum dignissimos iste nulla nisi nihil corrupti dolor ratione ex illum, numquam pariatur perferendis.</h6>
+                        <p class=" text-white mb-md-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. At fugit corporis provident nobis accusantium quaerat. Incidunt harum dignissimos iste nulla nisi nihil corrupti dolor ratione ex illum, numquam pariatur perferendis.</p>
                         <a href="" class="btn btn-primary py-md-2 px-md-4 font-weight-semi-bold mt-2">Learn More</a>
                     </div>
                 </div>
+            </div>
+            @endfor
         </div>
-        @endfor
     </div>
-</div>
 </div>
 <!-- Carousel End -->
 

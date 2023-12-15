@@ -20,24 +20,24 @@
             <h1>Meet Our Team</h1>
         </div>
         <div class="row">
-            @for($i=1;$i<=4;$i++) <div class="col-md-6 col-lg-3 text-center team mb-4">
+            @foreach($users as $user) <div class="col-md-6 col-lg-3 text-center team mb-4">
                 <div class="team-item rounded overflow-hidden mb-2">
                     <div class="team-img position-relative">
-                        <img class="img-fluid" src="{{asset('storage/img/user.png')}}" alt="">
+                        <img class="img-fluid" src="{{asset('storage/profile/'.($user['avatar']))}}" style="border-radius: 50%;" alt="">
                         <div class="team-social">
-                            <a class="btn btn-outline-light btn-square mx-1" href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light btn-square mx-1" href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light btn-square mx-1" href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="btn btn-outline-light btn-square mx-1" href="#"><i class="fab fa-whatsapp"></i></a>
+                            <a class="btn btn-outline-light btn-square mx-1" target='_blank' href="{{$user->twitter}}"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-square mx-1" target='_blank' href="{{$user->facebook}}"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-square mx-1" target='_blank' href="{{$user->linkedin}}"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-light btn-square mx-1" target='_blank' href="https://wa.me/{{$user->contact}}"><i class="fab fa-whatsapp"></i></a>
                         </div>
                     </div>
                     <div class="bg-secondary p-4">
-                        <h5>Staff {{$i}} name</h5>
-                        <p class="m-0">Role</p>
+                        <h5>{{$user->name}}</h5>
+                        <p class="m-0">{{$user->role}}</p>
                     </div>
                 </div>
         </div>
-        @endfor
+        @endforeach
     </div>
 </div>
 @endsection
