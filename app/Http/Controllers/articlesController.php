@@ -83,7 +83,7 @@ class articlesController extends Controller
         else{
             $filename= $art->cover;
         }
-        $art = Article::create([
+        $art = Article::where('id',$id)->update([
             'title' => $data['title'],
             'category' => $data['category'],
             'content' => $data['content'],
@@ -93,12 +93,13 @@ class articlesController extends Controller
             'slag' => Str::slug(request()->title, '-'),
             'author' => Auth()->user()->id
         ]);
-        return redirect()->route('articles.show', $id)->with('message', 'Article updated successfully!');
+        return redirect()->route('article.index', $id)->with('message', 'Article updated successfully!');
     }
 
     public function destroy($id)
     {
-        //
+        Article::destroy($id);
+        return redirect()->route('article.index')->with('message', 'Article deleted successfully!');
     }
 
     function smsB($phone, $message)
@@ -115,12 +116,27 @@ class articlesController extends Controller
     }
     function MakinduCM()
     {
-        $messages = [];
+        $message=[];
+        $messages = [$message];
         $names = [
-            ["contact" => "+254792597542", "name" => 'Bro Jared'],
-            ["contact" => "+254705190443", "name" => 'Bro Hillary'],
-            ["contact" => "+254706465836", "name" => 'Sis Rhoda'],
-            ["contact" => "+254721562752", "name" => 'Sis Lilian'],
+            ["contact"=>"+254112228252","name"=>'Pauline Akinyi'],
+            ["contact"=>"+254757694451","name"=>'Purity Kefa'],
+            ["contact"=>"+254707928699","name"=>'Sharon Monyenye'],
+            ["contact"=>"+254743536389","name"=>'Ian Musah'],
+            ["contact"=>"+254758813342","name"=>'Fidel Castro'],
+            ["contact"=>"+254740510174","name"=>"Calton Ochieng'"],
+            ["contact"=>"+254707928699","name"=>'Joan Okumu'],
+            ["contact"=>"+254759493394","name"=>'Christine James'],
+            ["contact"=>"+254796885850","name"=>'Brenda Sophie'],
+            ["contact"=>"+254700712666","name"=>'Elizabeth Makori'],
+            ["contact"=>"+254716733298","name"=>'Rael Beneti'],
+            ["contact"=>"+254782605068","name"=>'Mackline Akinyi'],
+            ["contact"=>"+254740910920","name"=>'Joy Obala'],
+            ["contact"=>"+254757480895","name"=>'Sandra Nekesa'],
+            ["contact"=>"+254742761211","name"=>'Lilian Kambua'],
+            ["contact"=>"+254759349604","name"=>'Emma Bitengo'],
+            ['contact'=>"+254722298467","name"=>"Nicole Chepngetich"],
+            ["contact"=>"+254701583807","name"=>'Edimon Ombati'],
         ];
         foreach ($names as $name) {
             $message = "Good morning " . $name['name'] . ". Thank you for enrolling for the AUSAA Makindu Mission 2023/24. We are glad to inform you that you have been selected to serve in the children ministries for the mission. Kindly join the group using this link for further communication. https://chat.whatsapp.com/GmR2Hx031TKIZml8zWC6mS";
@@ -131,3 +147,4 @@ class articlesController extends Controller
         return $messages;
     }
 }
+

@@ -58,9 +58,6 @@
         <button type="submit" class="btn btn-outline-primary">Post</button>
     </div>
 </form>
-@endsection
-
-
 <script>
     function wordsCount() {
         var k = (document.getElementById("mess").value).length;
@@ -68,3 +65,6 @@
         document.getElementById('messages').innerHTML = k + ' characters';
     }
 </script>
+@endsection
+
+

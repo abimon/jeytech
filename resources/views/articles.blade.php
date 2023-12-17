@@ -79,26 +79,17 @@
                 <div class="mb-5">
                     <h3 class="text-uppercase mb-4" style="letter-spacing: 5px;">Recent Post</h3>
                     @foreach($articles as $item)
-                    <a class="d-flex align-items-center text-decoration-none mb-3" href="">
-                        <img class="img-fluid rounded" src="{{$item->cover}}" alt="">
+                    <a class=" text-decoration-none mb-3" href="">
+                        <img class="img-fluid rounded" src="{{asset('storage/blog/'.($item->cover))}}" alt="">
                         <div class="pl-3">
-                            <h6 class="m-1">{{$item->title}}</h6>
+                            <h5 class="m-1">{{$item->title}}</h5>
                             <small>{{date_format($item->created_at,'jS F, Y')}}</small>
                         </div>
                     </a>
                     @endforeach
                 </div>
 
-                <!-- Tag Cloud -->
-                <div class="mb-5">
-                    <h3 class="text-uppercase mb-4" style="letter-spacing: 5px;">Tag Cloud</h3>
-                    <div class="d-flex flex-wrap m-n1">
-                        <?php $tags = json_decode(($article->tags),true);?>
-                        @foreach($tags as $tag)
-                        <a href="" class="btn btn-outline-primary m-1 text-capitalize">{{$tag}}</a>
-                        @endforeach
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>

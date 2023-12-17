@@ -1,15 +1,5 @@
 @extends('layouts.admin')
 @section('content')
-<div class="pagetitle">
-  <h1>Profile</h1>
-  <nav>
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="/">Home</a></li>
-      <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
-      <li class="breadcrumb-item active">Profile</li>
-    </ol>
-  </nav>
-</div>
 <section class="section profile">
   <div class="row">
     <div class="col-xl-4">
@@ -80,14 +70,23 @@
             <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
               <!-- Profile Edit Form -->
-              <form action="/profile/update" method="post" enctype="multipart/form-data">
+              <form action="/user/update/{{Auth()->User()->id}}" method="POST" enctype="multipart/form-data">
+                @csrf
                 <div class="row mb-3">
                   <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                   <div class="col-md-8 col-lg-9">
-                    <img src="{{asset('storage/profile/'.Auth()->User()->avatar)}}" alt="Profile">
+                    <img id="output" src="{{asset('storage/profile/'.Auth()->User()->avatar)}}" />
+                    <input type="file" accept="image/jpeg, image/png" name="avatar" id="file" style="display: none;" class="form-control" onchange="loadFile(event)">
+                    
+                    <script>
+                      var loadFile = function(event) {
+                        var image = document.getElementById('output');
+                        image.src = URL.createObjectURL(event.target.files[0]);
+                        document.getElementById('output').value==image.src;
+                      };
+                    </script>
                     <div class="pt-2">
-                      <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
-                      <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
+                      <a href="#" class="btn btn-primary btn-sm " title="Upload new profile image"><label for="file" class="text-white"><i class="bi bi-upload"></i> Upload Avatar</label></a>
                     </div>
                   </div>
                 </div>
@@ -110,7 +109,7 @@
                 <div class="row mb-3">
                   <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="phone" type="text" class="form-control" id="Phone" value="{{Auth()->user()->contact}}">
+                    <input name="contact" type="text" class="form-control" id="Phone" value="{{Auth()->user()->contact}}">
                   </div>
                 </div>
 
@@ -159,12 +158,12 @@
             <div class="tab-pane fade pt-3" id="profile-settings">
 
               <!-- Settings Form -->
-              <form method="post" action="/notify">
-
+              <form action="{{route('subscriber.store')}}" method="post">
+                @csrf
                 <div class="row mb-3">
                   <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Email Notifications</label>
                   <div class="col-md-8 col-lg-9">
-                    <div class="form-check">
+                    <!-- <div class="form-check">
                       <input class="form-check-input" type="checkbox" id="changesMade" checked>
                       <label class="form-check-label" for="changesMade">
                         Changes made to your account
@@ -175,9 +174,9 @@
                       <label class="form-check-label" for="newProducts">
                         Information on new products and services
                       </label>
-                    </div>
+                    </div> -->
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="proOffers">
+                      <input class="form-check-input" value="{{Auth()->user()->email}}" type="checkbox" id="proOffers" name='email'>
                       <label class="form-check-label" for="proOffers">
                         Marketing and promo offers
                       </label>
@@ -190,7 +189,7 @@
                     </div>
                   </div>
                 </div>
-                 
+
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary">Save Changes</button>
                 </div>
@@ -200,8 +199,8 @@
 
             <div class="tab-pane fade pt-3" id="profile-change-password">
               <!-- Change Password Form -->
-              <form action="/password/change">
-
+              <form action="/user/updatePass/{{Auth()->user()->id}}" method="post">
+                @csrf
                 <div class="row mb-3">
                   <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
                   <div class="col-md-8 col-lg-9">

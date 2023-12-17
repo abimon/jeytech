@@ -16,6 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    
     <!-- Libraries Stylesheet -->
     <link href="{{asset('storage/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
 
@@ -74,7 +75,6 @@
                     </a>
                     <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 9;">
                         <div class="navbar-nav w-100">
-                            <a href="/insights" class="nav-item nav-link">Insights</a>
                             <a href="" class="nav-item nav-link">Career</a>
                             <a href="" class="nav-item nav-link">Updates</a>
                         </div>
@@ -139,9 +139,10 @@
                 <h5 class="text-primary text-uppercase mb-4" style="letter-spacing: 5px;">Newsletter</h5>
                 <p>Subscribe for our quarterly updates</p>
                 <div class="w-100">
-                    <form action="/subscribe" method="post">
+                    <form action="{{route('subscriber.store')}}" method="post">
+                        @csrf
                         <div class="input-group">
-                            <input type="text" class="form-control border-light" style="padding: 30px;" placeholder="Your Email Address">
+                            <input type="email" name='email' class="form-control border-light" style="padding: 30px;" placeholder="Your Email Address">
                             <div class="input-group-append">
                                 <button type="submit" class="btn btn-primary px-4">Sign Up</button>
                             </div>
@@ -183,7 +184,8 @@
 
 
     <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="{{asset('storage/lib/easing/easing.min.js')}}"></script>
     <script src="{{asset('storage/lib/owlcarousel/owl.carousel.min.js')}}"></script>
