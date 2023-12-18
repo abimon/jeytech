@@ -35,7 +35,7 @@ Route::middleware('auth')->group(function () {
         return view('admin.profile');
     });
     Route::get('/dashboard', [HomeController::class, 'dashboard']);
-    Route::get('/message/read/{id}', [Message::class, 'read']);
+    Route::get('/message/read/{id}', [MessageController::class, 'read']);
     Route::resources([
         'article' => articlesController::class,
         'users' => UserController::class,

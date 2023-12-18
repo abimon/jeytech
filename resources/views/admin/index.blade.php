@@ -43,7 +43,7 @@
             @foreach($messages as $message)
             <div class="activity-item d-flex">
               <div class="activite-label">{{($message->updated_at)->diffForHumans()}}</div>
-              <div class="activity-content" data-bs-toggle="modal" data-bs-target="#show{{$message->id}}">
+              <div class="activity-content" type='button' data-bs-toggle="modal" data-bs-target="#show{{$message->id}}">
                 <b class="text-danger">{{$message->subject}}</b>
                 <p>&ldquo;{{$message->message}}&rdquo;</p>
                 <p class="text-end">- {{$message->name}}</p>
