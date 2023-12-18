@@ -3,8 +3,8 @@
 <div class="container-fluid py-2">
     <div class="container py-2">
         <div class="text-center mb-5">
-            <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Projects Portfolio</h5>
-            <h1>Previous projects we have engaged</h1>
+            <!-- <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Projects Portfolio</h5> -->
+            <h1 class="text-primary">Previous projects we have engaged</h1>
         </div>
         <div class="row">
             @foreach($items as $item)

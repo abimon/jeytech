@@ -35,14 +35,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [HomeController::class, 'dashboard']);
     Route::resources([
         'article' => articlesController::class,
-        'user' => UserController::class,
+        'users' => UserController::class,
         'updates' => UpdatesController::class,
         'portfolio' => PortfolioController::class,
         'testimonials' => TestimonialController::class,
         'partners'=>PartnersController::class
     ]);
     Route::controller(UserController::class)->prefix('/user')->group(function () {
-        Route::post('/update/{id}', 'update');
+        Route::post('/updateProf/{id}', 'updateProfile');
         Route::post('/updatePass/{id}', 'updatePass');
     });
 });

@@ -25,33 +25,12 @@
     </div>
 </div>
 <!-- Carousel End -->
-
-
-<!--  partners Start  -->
-<div class="container-fluid py-2">
-    <div class="container pt-2 pb-2">
-        <div class="text-center mb-5">
-            <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Partners</h5>
-            <h1>Our Partners</h1>
-        </div>
-        <div class="row">
-            @foreach($partners as $partner)
-            <div class="col-lg-2 col-md-3 col-6 m-1">
-                <div style="height: 100px;width:100px;">
-                    <img src="{{asset('storage/partners/'.$partner->logo)}}" alt="" style=" object-fit:contain; height:100%;width:100%;">
-                </div>
-            </div>
-            @endforeach
-        </div>
-    </div>
-</div>
-<!-- -- Partners End -->
 <!-- -- Services Start -->
 <div class="container-fluid py-2">
     <div class="container py-2">
         <div class="text-center mb-5">
-            <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Services</h5>
-            <h1>Our Leading Services</h1>
+            <!-- <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Services</h5> -->
+            <h1 class="text-primary">Our Leading Services</h1>
         </div>
         <div class="row">
             <div class="col-lg-4 col-md-6 mb-4">
@@ -97,12 +76,31 @@
     </div>
 </div>
 <!-- -- Services End -->
+<!--  partners Start  -->
+<div class="container-fluid py-2">
+    <div class="container pt-2 pb-2">
+        <div class="text-center mb-5">
+            <!-- <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Partners</h5> -->
+            <h1 class="text-primary">Our Partners</h1>
+        </div>
+        <div class="row">
+            @foreach($partners as $partner)
+            <div class="col-lg-2 col-md-3 col-3 m-1">
+                <div style="height: 100px;width:100px;">
+                    <img src="{{asset('storage/partners/'.$partner->logo)}}" alt="" style=" object-fit:contain; height:100%;width:100%;">
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+</div>
+<!-- -- Partners End -->
 <!-- Testimonial Start -->
 <div class="container-fluid py-2">
     <div class="container py-5">
         <div class="text-center mb-5">
-            <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Testimonial</h5>
-            <h1>What Say Our Clients</h1>
+            <!-- <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Testimonial</h5> -->
+            <h1 class="text-primary">What Say Our Clients</h1>
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-8">
@@ -127,8 +125,8 @@
 <div class="container-fluid py-2">
     <div class="container pt-5 pb-3">
         <div class="text-center mb-5">
-            <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Our Blog</h5>
-            <h1>Latest From Our Blog</h1>
+            <!-- <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Our Blog</h5> -->
+            <h1 class="text-primary">Latest From Our Blog</h1>
         </div>
         <div class="row pb-3">
             @foreach($articles as $article)

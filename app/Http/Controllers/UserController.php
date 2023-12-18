@@ -11,7 +11,8 @@ class UserController extends Controller
 {
     public function index()
     {
-        return view('admin.profile');
+        $users=User::all();
+        return view('admin.users.index',compact('users'));
     }
 
     /**
@@ -21,7 +22,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.users.create');
     }
 
     /**
@@ -30,9 +31,32 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $this->validate(request(),[
+            "name"=>'required',
+            "email"=>'required',
+            "contact"=>'required',
+            "avatar"=>'required|image',
+        ]);
+        if (request()->hasFile('avatar')) {
+            $extension = request()->file('avatar')->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            request()->file('avatar')->storeAs('public/profile', $filename);
+        }
+        User::create([
+            'name' => request()->name,
+            'email' => request()->email,
+            'contact' => request()->contact,
+            'facebook' => request()->facebook,
+            'linkedin' => request()->linkedin,
+            'avatar'=>$filename,
+            'role'=>request()->role,
+            'twitter' => request()->twitter,
+            'instagram' => request()->instagram,
+            'password'=>Hash::make($filename)
+        ]);
+        return redirect()->route('users.index')->with('message', 'User created successiful.');
     }
 
     /**
@@ -52,9 +76,10 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('admin.users.edit',compact('user'));
     }
 
     /**
@@ -64,9 +89,15 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
+    
     public function update($id)
     {
-        // dd(request());
+        $this->validate(request(),[
+            "name"=>'required',
+            "email"=>'required',
+            "contact"=>'required',
+            'role'=>'required',
+        ]);
         if (request()->hasFile('avatar')) {
             $extension = request()->file('avatar')->getClientOriginalExtension();
             $filename = time() . '.' . $extension;
@@ -82,10 +113,11 @@ class UserController extends Controller
             'facebook' => request()->facebook,
             'linkedin' => request()->linkedin,
             'avatar'=>$filename,
+            'role'=>request()->role,
             'twitter' => request()->twitter,
             'instagram' => request()->instagram
         ]);
-        return redirect()->back()->with('message', 'Profile updated successiful.');
+        return redirect()->route('users.index')->with('message', 'Profile updated successiful.');
     }
 
     /**
@@ -94,9 +126,10 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        //
+        User::destroy($id);
+        return redirect()->back();
     }
     public function updatePass($id)
     {
@@ -126,5 +159,28 @@ class UserController extends Controller
         } else {
             return redirect()->back()->with('error', 'Old password do not match');
         }
+    }
+    public function updateProfile($id)
+    {
+        // dd(request());
+        if (request()->hasFile('avatar')) {
+            $extension = request()->file('avatar')->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            request()->file('avatar')->storeAs('public/profile', $filename);
+        }
+        else{
+            $filename = (User::findorFail($id))->avatar;
+        }
+        User::where('id', $id)->update([
+            'name' => request()->name,
+            'email' => request()->email,
+            'contact' => request()->contact,
+            'facebook' => request()->facebook,
+            'linkedin' => request()->linkedin,
+            'avatar'=>$filename,
+            'twitter' => request()->twitter,
+            'instagram' => request()->instagram
+        ]);
+        return redirect()->back()->with('message', 'Profile updated successiful.');
     }
 }
