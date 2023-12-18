@@ -45,7 +45,6 @@
               <div class="activite-label">{{($message->updated_at)->diffForHumans()}}</div>
               <div class="activity-content" type='button' data-bs-toggle="modal" data-bs-target="#show{{$message->id}}">
                 <b class="text-danger">{{$message->subject}}</b>
-                <p>&ldquo;{{$message->message}}&rdquo;</p>
                 <p class="text-end">- {{$message->name}}</p>
               </div>
               <div class="modal fade" id="show{{$message->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
