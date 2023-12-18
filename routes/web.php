@@ -10,6 +10,7 @@ use App\Http\Controllers\SubscribersController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UpdatesController;
 use App\Http\Controllers\UserController;
+use App\Models\Message;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -34,6 +35,7 @@ Route::middleware('auth')->group(function () {
         return view('admin.profile');
     });
     Route::get('/dashboard', [HomeController::class, 'dashboard']);
+    Route::get('/message/read/{id}', [Message::class, 'read']);
     Route::resources([
         'article' => articlesController::class,
         'users' => UserController::class,

@@ -96,4 +96,8 @@ class MessageController extends Controller
     {
         //
     }
+    public function read($id){
+        Message::where('id',$id)->update(['isread'=>true]);
+        return redirect()->back();
+    }
 }

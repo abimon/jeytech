@@ -43,11 +43,34 @@
             @foreach($messages as $message)
             <div class="activity-item d-flex">
               <div class="activite-label">{{($message->updated_at)->diffForHumans()}}</div>
-                <div class="activity-content">
-                  <b class="text-danger">{{$message->subject}}</b>
-                  <p>&ldquo;{{$message->message}}&rdquo;</p>
-                  <p class="text-end">- {{$message->name}}</p>
+              <div class="activity-content" data-bs-toggle="modal" data-bs-target="#show{{$message->id}}">
+                <b class="text-danger">{{$message->subject}}</b>
+                <p>&ldquo;{{$message->message}}&rdquo;</p>
+                <p class="text-end">- {{$message->name}}</p>
+              </div>
+              <div class="modal fade" id="show{{$message->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">{{$message->subject}}</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-dark">
+                      
+                      <p>
+                        <b>
+                          <i>&ldquo;{{$message->message}}&rdquo;</i>
+                        </b>
+                      </p>
+                      <p>{{$message->name}}<br>{{$message->email}}<br>{{$message->contact}}</p>
+                    </div>
+                    <div class="modal-footer">
+                      <a href="/message/read/{{$message->id}}"><button type="button" class="btn btn-info">Read</button></a>
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
             @endforeach
           </div>
