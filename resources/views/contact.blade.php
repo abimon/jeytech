@@ -56,8 +56,8 @@
                                 <textarea class="form-control" name="message" placeholder="Leave a message here" id="message" style="height: 200px"></textarea>
                             </div>
                         </div>
-                        <div class="col-12">
-                            <button class="btn btn-secondary rounded-pill py-3 px-5" type="submit">Send Message</button>
+                        <div class="d-flex justify-content-end">
+                            <button class="btn btn-primary rounded-pill" type="submit">Send Message</button>
                         </div>
                     </div>
                 </form>
