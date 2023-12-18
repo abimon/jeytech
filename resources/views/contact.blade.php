@@ -3,7 +3,7 @@
 <div class="container-xxl ">
     <div class="container">
         <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-            <h1 class="display-5 mb-3">Contact Us</h1>
+            <h1 class="display-5 mb-3 text-primary">Contact Us</h1>
             <p>Inquire from us through any of the contact media below. We purpose to get back to you as soon as possible.</p>
         </div>
         <div class="row g-5 justify-content-center">

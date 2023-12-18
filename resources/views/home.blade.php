@@ -84,13 +84,15 @@
             <h1 class="text-primary">Our Partners</h1>
         </div>
         <div class="row">
+            <div class="d-flex justify-content-center">
             @foreach($partners as $partner)
             <div class="col-lg-2 col-md-3 col-3 m-1">
-                <div style="height: 100px;width:100px;">
+                <div style="height: 100%;width:100%;">
                     <img src="{{asset('storage/partners/'.$partner->logo)}}" alt="" style=" object-fit:contain; height:100%;width:100%;">
                 </div>
             </div>
             @endforeach
+            </div>
         </div>
     </div>
 </div>
