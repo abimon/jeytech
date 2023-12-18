@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class CommentsController extends Controller
@@ -23,7 +24,7 @@ class CommentsController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -32,9 +33,16 @@ class CommentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        Comment::create([
+            'article_id'=>request()->id,
+            'name'=>request()->name,
+            'email'=>request()->email,
+            'comment_id'=>request()->comment_id,
+            'comment'=>request()->comment
+        ]);
+        return redirect()->back();
     }
 
     /**

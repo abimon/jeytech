@@ -29,9 +29,8 @@ class articlesController extends Controller
             'title' => 'required',
             'category' => 'required',
             'content' => 'required',
-            'except' => 'required|max:200',
+            'except' => 'required|max:400',
             'cover' => 'required|image',
-            'tags' => 'required'
         ]);
         if (request()->hasFile('cover')) {
             $extension = request()->file('cover')->getClientOriginalExtension();
@@ -53,7 +52,9 @@ class articlesController extends Controller
 
     public function show($id)
     {
-        //
+        $articles = Article::all();
+        $article = Article::find($id);
+        return view('articles.show', compact('articles'))->with('likes','comments');
     }
 
     public function edit($id)
@@ -72,8 +73,7 @@ class articlesController extends Controller
             'title' => 'required',
             'category' => 'required',
             'content' => 'required',
-            'except' => 'required|max:200',
-            'tags' => 'required'
+            'except' => 'required|max:400',
         ]);
         if (request()->hasFile('cover')) {
             $extension = request()->file('cover')->getClientOriginalExtension();
@@ -102,49 +102,5 @@ class articlesController extends Controller
         return redirect()->route('article.index')->with('message', 'Article deleted successfully!');
     }
 
-    function smsB($phone, $message)
-    {
-        $data = json_encode(["data" => [
-            "addresses" => [$phone],
-            "message" => $message,
-            "target_device_iden" => "ujxEeGElrMasjCuudUDB92",
-        ]]);
-        $token = 'o.F857d9ueES4ptumrrnCVTfOmxiWwgGbr';
-        $response = Http::withBody($data, 'application/json')->withHeaders(['Access-Token' => $token])->post('https://api.pushbullet.com/v2/texts');
-        $result = json_decode($response);
-        return $result;
-    }
-    function MakinduCM()
-    {
-        $message=[];
-        $messages = [$message];
-        $names = [
-            ["contact"=>"+254112228252","name"=>'Pauline Akinyi'],
-            ["contact"=>"+254757694451","name"=>'Purity Kefa'],
-            ["contact"=>"+254707928699","name"=>'Sharon Monyenye'],
-            ["contact"=>"+254743536389","name"=>'Ian Musah'],
-            ["contact"=>"+254758813342","name"=>'Fidel Castro'],
-            ["contact"=>"+254740510174","name"=>"Calton Ochieng'"],
-            ["contact"=>"+254707928699","name"=>'Joan Okumu'],
-            ["contact"=>"+254759493394","name"=>'Christine James'],
-            ["contact"=>"+254796885850","name"=>'Brenda Sophie'],
-            ["contact"=>"+254700712666","name"=>'Elizabeth Makori'],
-            ["contact"=>"+254716733298","name"=>'Rael Beneti'],
-            ["contact"=>"+254782605068","name"=>'Mackline Akinyi'],
-            ["contact"=>"+254740910920","name"=>'Joy Obala'],
-            ["contact"=>"+254757480895","name"=>'Sandra Nekesa'],
-            ["contact"=>"+254742761211","name"=>'Lilian Kambua'],
-            ["contact"=>"+254759349604","name"=>'Emma Bitengo'],
-            ['contact'=>"+254722298467","name"=>"Nicole Chepngetich"],
-            ["contact"=>"+254701583807","name"=>'Edimon Ombati'],
-        ];
-        foreach ($names as $name) {
-            $message = "Good morning " . $name['name'] . ". Thank you for enrolling for the AUSAA Makindu Mission 2023/24. We are glad to inform you that you have been selected to serve in the children ministries for the mission. Kindly join the group using this link for further communication. https://chat.whatsapp.com/GmR2Hx031TKIZml8zWC6mS";
-            $result = $this->smsB($name['contact'], $message);
-            array_push($messages, json_encode($result));
-        }
-
-        return $messages;
-    }
 }
 

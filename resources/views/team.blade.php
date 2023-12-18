@@ -1,13 +1,13 @@
 @extends('layouts.app')
 @section('content')
 <div class="container-fluid py-1 carousel-inner">
-    <div class="carousel-item active" style="min-height: 300px;">
-        <img class=" w-100" src="{{asset('storage/img/carousel-1.jpg')}}" style="min-height: 300px; object-fit: cover;">
+    <div class="carousel-item active" style="min-height: 200px;">
+        <img class="w-100" src="{{asset('storage/img/team.jpg')}}" style=" object-fit: cover;max-height:400px;">
         <div class="carousel-caption d-flex align-items-center justify-content-center">
             <div class="p-5" style="width: 100%; text-align:center;">
-                <h5 class="text-white text-uppercase mb-md-3">Purpose Driven People</h5>
+                <h5 class="text-primary text-uppercase mb-md-3">THE CULTURE IN PRECISION</h5>
                 <!-- <h1 class="display-3 text-white mb-md-4"></h1> -->
-                <h2 class="text-white mb-md-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed, rem in corporis dignissimos aspernatur doloremque cum doloribus repudiandae blanditiis, dolorum dicta officiis tenetur deserunt reiciendis voluptatum officia nam cumque sunt?</h2>
+                <p class="text-white mb-md-4">Precision is not merely a measure of accuracy but a mindset that infuses innovation. Our commitment to excellence is not just a philosophy but a way of life that permeates through every team member and resonates in our daily pursuits.</p>
             </div>
         </div>
     </div>

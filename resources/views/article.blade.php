@@ -39,9 +39,9 @@
                                 style="width: 45px;">
                             <div class="media-body">
                                 <h6>{{$comment->name}} <small><i>{{($comment->updated_at)->diffForHumans()}}</i></small></h6>
-                                <p>{{$article->comment->comment}}</p>
+                                <p>{{$comment->comment}}</p>
                                 <button class="btn btn-sm btn-secondary">Reply</button>
-                                @foreach($comments as $item)
+                                @foreach($article->comments as $item)
                                 @if($item->comment_id==$comment->id)
                                 <div class="media mt-4">
                                     <img src="{{asset('storage/img/user.png')}}" alt="Image" class="img-fluid rounded-circle mr-3 mt-1"
@@ -61,18 +61,20 @@
                     <!-- Comment Form -->
                     <div class="bg-secondary rounded p-5">
                         <h3 class="text-uppercase mb-4" style="letter-spacing: 5px;">Leave a comment</h3>
-                        <form method="post" action='/comment'>
+                        <form method="post" action='{{route("comments.store")}}'>
+                            @csrf
+                            <input type="hidden" name="id" value="{{$article->id}}">
                             <div class="form-group">
                                 <label for="name">Name *</label>
-                                <input type="text" class="form-control border-0" id="name" required>
+                                <input type="text" class="form-control border-0" name="name" required>
                             </div>
                             <div class="form-group">
                                 <label for="email">Email *</label>
-                                <input type="email" class="form-control border-0" id="email" required>
+                                <input type="email" class="form-control border-0" name="email" required>
                             </div>
                             <div class="form-group">
-                                <label for="message">Message *</label>
-                                <textarea id="message" cols="30" rows="5" class="form-control border-0" required></textarea>
+                                <label for="message">Comment *</label>
+                                <textarea name="comment" cols="30" rows="5" class="form-control border-0" required></textarea>
                             </div>
                             <div class="form-group mb-0">
                                 <input type="submit" value="Leave Comment" class="btn btn-primary py-md-2 px-md-4 font-weight-semi-bold">

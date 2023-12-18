@@ -26,7 +26,7 @@ class TestimonialController extends Controller
             'company' => 'required',
             'position'=>'required',
             'avatar' => 'required|image',
-            'statement' => 'required|max:200',
+            'statement' => 'required|max:400',
         ]);
         if (request()->hasFile('avatar')) {
             $extension = request()->file('avatar')->getClientOriginalExtension();

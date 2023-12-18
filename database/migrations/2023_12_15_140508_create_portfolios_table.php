@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('cover');
-            $table->string('details');
+            $table->longText('details');
             $table->string('category');
             $table->timestamps();
         });

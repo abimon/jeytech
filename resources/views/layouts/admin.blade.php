@@ -277,16 +277,22 @@
                     <span>Updates</span>
                 </a>
             </li>
-            <!-- <li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="{{route('portfolio.index')}}">
                     <i class="bi bi-calendar"></i>
                     <span>Portfolio</span>
                 </a>
-            </li> -->
+            </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="{{route('testimonials.index')}}">
                     <i class="bi bi-chat-quote"></i>
                     <span>Testimonials</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{route('partners.index')}}">
+                    <i class="bi bi-people"></i>
+                    <span>Partners</span>
                 </a>
             </li>
             <!-- End Profile Page Nav -->

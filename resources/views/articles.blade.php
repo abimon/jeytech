@@ -24,34 +24,14 @@
                     <div class="col-lg-6 mb-4">
                         <div class="blog-item position-relative overflow-hidden rounded mb-2" style="height: 300px;">
                             <img class="" src="{{asset('storage/blog/'.$item->cover)}}" alt="" style="width: 100%;object-fit:cover;">
-                            <a class="blog-overlay text-decoration-none" href="/article/{{$item->slug}}">
-                                <h5 class="text-white mb-3">{{$item->except}}</h5>
+                            <a class="blog-overlay text-decoration-none" href="/insight/{{$item->slag}}">
+                                <h5 class="text-white mb-3">{{$item->title}}</h5>
                                 <p class="text-primary m-0">{{date_format($item->created_at,'jS F, Y')}}</p>
                             </a>
                         </div>
                     </div>
                     @endforeach
-                    <!-- <div class="col-12">
-                        <nav aria-label="Page navigation">
-                            <ul class="pagination pagination-lg justify-content-center mb-0">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                </li>
-                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                        <span class="sr-only">Next</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div> -->
+                    
                 </div>
             </div>
 

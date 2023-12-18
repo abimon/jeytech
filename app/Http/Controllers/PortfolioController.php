@@ -14,7 +14,9 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-        //
+        $items = Portfolio::all();
+
+        return view('admin.portfolios.index',compact('items'));
     }
 
     /**
@@ -24,7 +26,7 @@ class PortfolioController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.portfolios.create');
     }
 
     /**
@@ -35,7 +37,24 @@ class PortfolioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $this->validate(request(), [
+            'title' => 'required',
+            'cover'=>'required|image',
+            'details'=>'required',
+            'category' => 'required',
+        ]);
+        if (request()->hasFile('cover')) {
+            $extension = request()->file('cover')->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            request()->file('cover')->storeAs('public/projects', $filename);
+        }
+        Portfolio::create([
+            'title' => $data['title'],
+            'details' => $data['details'],
+            'category' => $data['category'],
+            'cover' => $filename,
+        ]);
+        return redirect()->route('portfolio.index')->with('message','Project successifully created');
     }
 
     /**
@@ -55,9 +74,10 @@ class PortfolioController extends Controller
      * @param  \App\Models\Portfolio  $portfolio
      * @return \Illuminate\Http\Response
      */
-    public function edit(Portfolio $portfolio)
+    public function edit($id)
     {
-        //
+        $portifolio = Portfolio::find($id);
+        return view('admin.portfolios.edit',compact('portifolio'));
     }
 
     /**
@@ -67,9 +87,28 @@ class PortfolioController extends Controller
      * @param  \App\Models\Portfolio  $portfolio
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Portfolio $portfolio)
+    public function update($id)
     {
-        //
+        $data = $this->validate(request(), [
+            'title' => 'required',
+            'details'=>'required',
+            'category' => 'required',
+        ]);
+        if (request()->hasFile('cover')) {
+            $extension = request()->file('cover')->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            request()->file('cover')->storeAs('public/projects', $filename);
+        }
+        else{
+            $filename=(Portfolio::find($id))->cover;
+        }
+        Portfolio::where('id',$id)->update([
+            'title' => $data['title'],
+            'details' => $data['details'],
+            'category' => $data['category'],
+            'cover' => $filename,
+        ]);
+        return redirect()->route('portfolio.index')->with('message','Project successifully updated');
     }
 
     /**
@@ -78,8 +117,9 @@ class PortfolioController extends Controller
      * @param  \App\Models\Portfolio  $portfolio
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Portfolio $portfolio)
+    public function destroy($id)
     {
-        //
+        Portfolio::destroy($id);
+        return redirect()->route('portfolio.index');
     }
 }

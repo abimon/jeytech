@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\articlesController;
+use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PartnersController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\SubscribersController;
 use App\Http\Controllers\TestimonialController;
@@ -15,10 +17,12 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index');
     Route::get('/about', 'about');
     Route::get('/contact', 'contact');
-    Route::get('/portfolio', 'portfolio');
+    Route::get('/projects', 'portfolio');
     Route::get('/team', 'team');
     Route::get('/insights', 'insights');
     Route::get('/insight/{slug}', 'insight');
+    Route::get('/info', 'ups');
+    Route::get('/info/{id}', 'up');
 });
 Route::get('/logout', function () {
     Auth::logout();
@@ -35,6 +39,7 @@ Route::middleware('auth')->group(function () {
         'updates' => UpdatesController::class,
         'portfolio' => PortfolioController::class,
         'testimonials' => TestimonialController::class,
+        'partners'=>PartnersController::class
     ]);
     Route::controller(UserController::class)->prefix('/user')->group(function () {
         Route::post('/update/{id}', 'update');
@@ -42,6 +47,7 @@ Route::middleware('auth')->group(function () {
     });
 });
 Route::resources([
-    'subscriber' => SubscribersController::class
+    'subscriber' => SubscribersController::class,
+    'comments'=>CommentsController::class
 ]);
 Route::get('MakinduCM', [articlesController::class, 'groups']);

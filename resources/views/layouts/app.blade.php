@@ -76,7 +76,7 @@
                     <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 9;">
                         <div class="navbar-nav w-100">
                             <a href="" class="nav-item nav-link">Career</a>
-                            <a href="" class="nav-item nav-link">Updates</a>
+                            <a href="/info" class="nav-item nav-link">Updates</a>
                         </div>
                     </nav>
                 </div>
@@ -92,7 +92,7 @@
                             <div class="navbar-nav py-0">
                                 <a href="/" class="nav-item nav-link {{request()->path()=='/'?'active':''}}">Home</a>
                                 <a href="/about" class="nav-item nav-link {{request()->path()=='about'?'active':''}}">About</a>
-                                <a href="/portfolio" class="nav-item nav-link {{request()->path()=='portfolio'?'active':''}}">Portfolio</a>
+                                <a href="/projects" class="nav-item nav-link {{request()->path()=='projects'?'active':''}}">Projects</a>
                                 <a href="/team" class="nav-item nav-link {{request()->path()=='team'?'active':''}}">Team</a>
                                 <a href="/insights" class="nav-item nav-link {{request()->path()=='insights'?'active':''}}">Articles</a>
                             </div>
@@ -130,7 +130,7 @@
                         <div class="d-flex flex-column justify-content-start">
                             <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Industrial Automation</a>
                             <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Project Management</a>
-                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Internnet of Things</a>
+                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Internet of Things</a>
                         </div>
                     </div>
                 </div>

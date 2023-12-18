@@ -7,21 +7,21 @@
             <h1>Previous projects we have engaged</h1>
         </div>
         <div class="row">
-            @for($i=1;$i<=6;$i++)
+            @foreach($items as $item)
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="rounded overflow-hidden mb-2">
-                    <img class="img-fluid w-100" style="height:200px;" src="{{asset('storage/img/course-'.($i).'.jpg')}}" alt="">
+                    <img class="img-fluid w-100" style="height:200px;" src="{{asset('storage/projects/'.$item->cover)}}" alt="">
                     <div class="bg-secondary p-4">
-                        <a class="h5" href="">Project {{$i}}</a>
+                        <a class="h5" href="">{{$item->title}}</a>
                         <div class="border-top mt-4 pt-4">
-                            <div class="d-flex justify-content-center">
-                                <small>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni illo, obcaecati voluptates numquam non nulla pariatur sint facilis. Culpa aliquam fugiat alias iusto, quia ea eum debitis nihil est molestiae.</small></h6>
+                            <div class="d-flex justify-content-center" style="height:200px;overflow:scroll;">
+                                <small><?php echo html_entity_decode($item->details); ?></small></h6>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            @endfor
+            @endforeach
         </div>
     </div>
 </div>

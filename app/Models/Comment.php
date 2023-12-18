@@ -12,7 +12,6 @@ class Comment extends Model
         'article_id',
         'name',
         'email',
-        'contact',
         'comment_id',
         'comment'
     ];
