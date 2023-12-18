@@ -28,7 +28,8 @@
             </div>
             <div class="col-lg-7 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
                 <p class="mb-4">Any information shared through this form is kept private as per our user policy. It will only be used to respond to you appropriately.</p>
-                <form action="/contactForm" method="post">
+                <form action="{{route('messages.store')}}" method="post">
+                    @csrf
                     <div class="row ">
                         <div class="col-md-10 mb-3">
                             <div class="form-floating">
@@ -42,7 +43,7 @@
                         </div>
                         <div class="col-md-10 mb-3">
                             <div class="form-floating">
-                                <input type="number" class="form-control" id="number" name="phone" placeholder="Your Phone Number">
+                                <input type="number" class="form-control" id="number" name="contact" placeholder="Your Phone Number">
                             </div>
                         </div>
                         <div class="col-md-10 mb-3">

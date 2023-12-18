@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Message;
 use App\Models\User;
 use App\Models\Partner;
 use App\Models\Portfolio;
@@ -56,8 +57,7 @@ class HomeController extends Controller
     }
     public function dashboard(){
         $posts=Article::all();
-        return view('admin.index',compact('posts'))->with('comments','likes');
+        $messages= Message::where('isread',false)->get();
+        return view('admin.index',compact('posts','messages'))->with('comments','likes');
     }
-    
-    
 }

@@ -6,7 +6,7 @@
   <div class="row">
 
     <!-- Right side columns -->
-    <div class="col-lg-8">
+    <div class="col-lg-6">
 
       <!-- Recent Posts -->
       <div class="card">
@@ -19,9 +19,9 @@
               <div class="activite-label">{{($post->updated_at)->diffForHumans()}}</div>
               <i class='bi bi-circle-fill activity-badge {{($post->category)=="IoT"?"text-success":(($post->category)=="Industrial Automation"?"text-info":"text-warning")}} align-self-start'></i>
               <a href="/insight/{{$post->slag}}">
-              <div class="activity-content">
-                {{$post->title}}
-              </div>
+                <div class="activity-content">
+                  {{$post->title}}
+                </div>
               </a>
             </div><!-- End activity item-->
             @endforeach
@@ -31,6 +31,32 @@
       </div><!-- End Recent Activity -->
 
     </div><!-- End Right side columns -->
+    <!-- Right side columns -->
+    <div class="col-lg-6">
+
+      <!-- Recent Posts -->
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Unread Messages <span><!--| Today--></span></h5>
+
+          <div class="activity w-100">
+            @foreach($messages as $message)
+            <div class="activity-item d-flex">
+              <div class="activite-label">{{($message->updated_at)->diffForHumans()}}</div>
+                <div class="activity-content">
+                  <b class="text-danger">{{$message->subject}}</b>
+                  <p>&ldquo;{{$message->message}}&rdquo;</p>
+                  <p class="text-end">- {{$message->name}}</p>
+                </div>
+            </div>
+            @endforeach
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <!-- End Right side columns -->
 
   </div>
 </section>

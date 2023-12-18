@@ -135,7 +135,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="{{route('portfolio.index')}}">
-                    <i class="bi bi-calendar"></i>
+                    <i class="bi bi-bar-chart"></i>
                     <span>Portfolio</span>
                 </a>
             </li>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\articlesController;
 use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PartnersController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\SubscribersController;
@@ -48,6 +49,7 @@ Route::middleware('auth')->group(function () {
 });
 Route::resources([
     'subscriber' => SubscribersController::class,
-    'comments'=>CommentsController::class
+    'comments'=>CommentsController::class,
+    'messages'=>MessageController::class
 ]);
 Route::get('MakinduCM', [articlesController::class, 'groups']);
