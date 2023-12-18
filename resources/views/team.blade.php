@@ -16,8 +16,7 @@
 <div class="container-fluid py-1">
     <div class="container pt-1 pb-3">
         <div class="text-center mb-5">
-            <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Team</h5>
-            <h1>Meet Our Team</h1>
+            <h1 class="text-primary">Meet Our Team</h1>
         </div>
         <div class="row">
             @foreach($users as $user) <div class="col-md-6 col-lg-3 text-center team mb-4">

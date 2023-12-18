@@ -10,7 +10,7 @@
             </div>
             <div class="col-lg-7">
                 <div class="text-left mb-4">
-                    <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">About Us</h5>
+                    <h1 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">About Us</h1>
                     <h1>Our Vision</h1>
                 </div>
                 <p>Jeytech Precisions is a company envisioned to revolutionize industries through innovative automation solutions, cutting-edge IoT technologies, and unparalleled project management consultancy, driving unparalleled efficiency and productivity for businesses worldwide.</p>
@@ -23,8 +23,8 @@
     <!-- About End -->
     <div class="container">
         <div class="text-center mb-5">
-            <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Core Values</h5>
-            <h1>Our Core Values</h1>
+            
+            <h1 class="text-primary">Our Core Values</h1>
         </div>
         <div class="row">
             <div class="col-md-4">

@@ -65,8 +65,7 @@ class TestimonialController extends Controller
             'contact'=>'required',
             'company' => 'required',
             'position'=>'required',
-            'avatar' => 'required|image',
-            'statement' => 'required|max:200',
+            'statement' => 'required|max:400',
         ]);
         if (request()->hasFile('cover')) {
             $extension = request()->file('cover')->getClientOriginalExtension();
@@ -74,7 +73,7 @@ class TestimonialController extends Controller
             request()->file('cover')->storeAs('public/testimonial', $filename);
         }
         else{
-            $filename = (Testimonial::where('id',$id)->first())->cover;
+            $filename = (Testimonial::where('id',$id)->first())->path;
         }
         Testimonial::where('id',$id)->update([
             'name' => $data['name'],
